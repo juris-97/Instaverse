@@ -9,7 +9,7 @@ coverage/
 .classpath
 .project
 .vscode
-instaverse/.angular
-instaverse/.nx/cache
+instaverse-client/.angular
+instaverse-client/.nx/cache
 
 .angular
