@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {MatButton} from "@angular/material/button";
 
@@ -29,5 +29,6 @@ import {MatButton} from "@angular/material/button";
     </div>
   `,
   styleUrl: './feature-profile-header.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeatureProfileHeaderComponent {}

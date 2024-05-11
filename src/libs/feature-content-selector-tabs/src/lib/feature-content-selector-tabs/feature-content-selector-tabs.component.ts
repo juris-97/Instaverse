@@ -1,12 +1,13 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MatTab, MatTabGroup, MatTabLabel} from "@angular/material/tabs";
 import {MatIcon} from "@angular/material/icon";
+import {FeaturePhotoListComponent} from "@feature-photo-list";
 
 @Component({
   selector: 'inst-content-selector-tabs',
   standalone: true,
-  imports: [CommonModule, MatTabGroup, MatTab, MatIcon, MatTabLabel],
+  imports: [CommonModule, MatTabGroup, MatTab, MatIcon, MatTabLabel, FeaturePhotoListComponent],
   template: `
     <mat-tab-group class="tab-group" headerPosition="below">
       <mat-tab class="tab">
@@ -14,7 +15,7 @@ import {MatIcon} from "@angular/material/icon";
           <mat-icon class="grid-icon" svgIcon="grid"></mat-icon>
           POSTS
         </ng-template>
-        Content 1
+        <inst-feature-photo-list></inst-feature-photo-list>
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
@@ -33,5 +34,6 @@ import {MatIcon} from "@angular/material/icon";
     </mat-tab-group>
   `,
   styleUrl: './feature-content-selector-tabs.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeatureContentSelectorTabsComponent {}

@@ -5740,6 +5740,15 @@
         "hash": "sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ=="
       }
     },
+    "npm:angular-mixed-cdk-drag-drop": {
+      "type": "npm",
+      "name": "npm:angular-mixed-cdk-drag-drop",
+      "data": {
+        "version": "2.2.3",
+        "packageName": "angular-mixed-cdk-drag-drop",
+        "hash": "sha512-IAc3xmmNamce3l3YF6w6RQkFsZ5DrZ0RbBX3Cyejc5uycWN78mtb0vKzlVI8t43NvR+bC1lAzVbh0kQGvVFFQA=="
+      }
+    },
     "npm:ansi-colors": {
       "type": "npm",
       "name": "npm:ansi-colors",
@@ -12447,6 +12456,11 @@
       },
       {
         "source": "feature-content-selector-tabs",
+        "target": "feature-photo-list",
+        "type": "static"
+      },
+      {
+        "source": "feature-content-selector-tabs",
         "target": "npm:jest-preset-angular",
         "type": "static"
       }
@@ -12499,6 +12513,21 @@
       {
         "source": "feature-photo-list",
         "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "feature-photo-list",
+        "target": "npm:@angular/material",
+        "type": "static"
+      },
+      {
+        "source": "feature-photo-list",
+        "target": "npm:@angular/cdk",
+        "type": "static"
+      },
+      {
+        "source": "feature-photo-list",
+        "target": "npm:angular-mixed-cdk-drag-drop",
         "type": "static"
       },
       {
@@ -12561,6 +12590,11 @@
       {
         "source": "instaverse",
         "target": "npm:@angular/router",
+        "type": "static"
+      },
+      {
+        "source": "instaverse",
+        "target": "npm:angular-mixed-cdk-drag-drop",
         "type": "static"
       },
       {
@@ -22333,6 +22367,33 @@
       {
         "source": "npm:ajv-keywords",
         "target": "npm:fast-deep-equal",
+        "type": "static"
+      }
+    ],
+    "npm:angular-mixed-cdk-drag-drop": [
+      {
+        "source": "npm:angular-mixed-cdk-drag-drop",
+        "target": "npm:@angular/cdk",
+        "type": "static"
+      },
+      {
+        "source": "npm:angular-mixed-cdk-drag-drop",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "npm:angular-mixed-cdk-drag-drop",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "npm:angular-mixed-cdk-drag-drop",
+        "target": "npm:rxjs",
+        "type": "static"
+      },
+      {
+        "source": "npm:angular-mixed-cdk-drag-drop",
+        "target": "npm:tslib",
         "type": "static"
       }
     ],

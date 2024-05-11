@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {FeatureProfileHeaderComponent} from "@feature-profile-header";
 import {FeatureProfileStoriesComponent} from "@feature-profile-stories";
@@ -25,7 +25,8 @@ import {DomSanitizer} from "@angular/platform-browser";
       <inst-content-selector-tabs></inst-content-selector-tabs>
     </main>
   `,
-  styleUrl: './instaverse-app.component.scss'
+  styleUrl: './instaverse-app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InstaverseAppComponent {
   title: string = 'instaverse';

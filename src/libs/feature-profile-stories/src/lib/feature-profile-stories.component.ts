@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 @Component({
@@ -34,6 +34,7 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
     </div>
   `,
   styleUrl: './feature-profile-stories.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeatureProfileStoriesComponent {
 

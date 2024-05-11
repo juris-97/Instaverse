@@ -12,6 +12,7 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "angular-mixed-cdk-drag-drop": "^2.2.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3",
@@ -73,6 +74,157 @@
   "fileMap": {
     "nonProjectFiles": [],
     "projectFileMap": {
+      "feature-profile-stories": [
+        {
+          "file": "src/libs/feature-profile-stories/.eslintrc.json",
+          "hash": "408602695467058979"
+        },
+        {
+          "file": "src/libs/feature-profile-stories/jest.config.ts",
+          "hash": "6735682763068742685"
+        },
+        {
+          "file": "src/libs/feature-profile-stories/project.json",
+          "hash": "2388800361376344281"
+        },
+        {
+          "file": "src/libs/feature-profile-stories/src/index.ts",
+          "hash": "190389105875437992"
+        },
+        {
+          "file": "src/libs/feature-profile-stories/src/lib/feature-profile-stories.component.scss",
+          "hash": "13558052512060601407"
+        },
+        {
+          "file": "src/libs/feature-profile-stories/src/lib/feature-profile-stories.component.ts",
+          "hash": "15001007831494872844",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "src/libs/feature-profile-stories/src/test-setup.ts",
+          "hash": "12935735732682149507",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "src/libs/feature-profile-stories/tsconfig.json",
+          "hash": "8526453262384300416"
+        },
+        {
+          "file": "src/libs/feature-profile-stories/tsconfig.lib.json",
+          "hash": "6020606002228403423"
+        },
+        {
+          "file": "src/libs/feature-profile-stories/tsconfig.spec.json",
+          "hash": "7159729809249402441"
+        }
+      ],
+      "feature-photo-list": [
+        {
+          "file": "src/libs/feature-photo-list/.eslintrc.json",
+          "hash": "408602695467058979"
+        },
+        {
+          "file": "src/libs/feature-photo-list/jest.config.ts",
+          "hash": "9838629307216609"
+        },
+        {
+          "file": "src/libs/feature-photo-list/project.json",
+          "hash": "2337723131536297805"
+        },
+        {
+          "file": "src/libs/feature-photo-list/src/index.ts",
+          "hash": "18417988065604799430"
+        },
+        {
+          "file": "src/libs/feature-photo-list/src/lib/feature-photo-list/feature-photo-list.component.scss",
+          "hash": "12543222247328966665"
+        },
+        {
+          "file": "src/libs/feature-photo-list/src/lib/feature-photo-list/feature-photo-list.component.ts",
+          "hash": "13669446156735523979",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:@angular/cdk",
+            "npm:angular-mixed-cdk-drag-drop"
+          ]
+        },
+        {
+          "file": "src/libs/feature-photo-list/src/test-setup.ts",
+          "hash": "12935735732682149507",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "src/libs/feature-photo-list/tsconfig.json",
+          "hash": "8526453262384300416"
+        },
+        {
+          "file": "src/libs/feature-photo-list/tsconfig.lib.json",
+          "hash": "6020606002228403423"
+        },
+        {
+          "file": "src/libs/feature-photo-list/tsconfig.spec.json",
+          "hash": "7159729809249402441"
+        }
+      ],
+      "feature-profile-header": [
+        {
+          "file": "src/libs/feature-profile-header/.eslintrc.json",
+          "hash": "408602695467058979"
+        },
+        {
+          "file": "src/libs/feature-profile-header/jest.config.ts",
+          "hash": "1662372569167999269"
+        },
+        {
+          "file": "src/libs/feature-profile-header/project.json",
+          "hash": "16002279857879423010"
+        },
+        {
+          "file": "src/libs/feature-profile-header/src/index.ts",
+          "hash": "12654707337648708069"
+        },
+        {
+          "file": "src/libs/feature-profile-header/src/lib/feature-profile-header.component.scss",
+          "hash": "6805352567635985845"
+        },
+        {
+          "file": "src/libs/feature-profile-header/src/lib/feature-profile-header.component.ts",
+          "hash": "14166243386546490151",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "src/libs/feature-profile-header/src/test-setup.ts",
+          "hash": "12935735732682149507",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "src/libs/feature-profile-header/tsconfig.json",
+          "hash": "8526453262384300416"
+        },
+        {
+          "file": "src/libs/feature-profile-header/tsconfig.lib.json",
+          "hash": "6020606002228403423"
+        },
+        {
+          "file": "src/libs/feature-profile-header/tsconfig.spec.json",
+          "hash": "7159729809249402441"
+        }
+      ],
       "instaverse": [
         {
           "file": ".editorconfig",
@@ -122,11 +274,11 @@
         },
         {
           "file": "package-lock.json",
-          "hash": "8850859086436945365"
+          "hash": "12964201315282746674"
         },
         {
           "file": "package.json",
-          "hash": "9772282950011434901",
+          "hash": "13636303724046254317",
           "deps": [
             "npm:@angular/animations",
             "npm:@angular/cdk",
@@ -138,6 +290,7 @@
             "npm:@angular/platform-browser",
             "npm:@angular/platform-browser-dynamic",
             "npm:@angular/router",
+            "npm:angular-mixed-cdk-drag-drop",
             "npm:rxjs",
             "npm:tslib",
             "npm:zone.js",
@@ -188,11 +341,11 @@
         },
         {
           "file": "src/app/instaverse-app.component.scss",
-          "hash": "12860069848050115512"
+          "hash": "14661537913656538474"
         },
         {
           "file": "src/app/instaverse-app.component.ts",
-          "hash": "500997145072575416",
+          "hash": "15748616111746322969",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/router",
@@ -304,56 +457,6 @@
           "hash": "15575553540147145788"
         }
       ],
-      "feature-profile-header": [
-        {
-          "file": "src/libs/feature-profile-header/.eslintrc.json",
-          "hash": "408602695467058979"
-        },
-        {
-          "file": "src/libs/feature-profile-header/jest.config.ts",
-          "hash": "1662372569167999269"
-        },
-        {
-          "file": "src/libs/feature-profile-header/project.json",
-          "hash": "16002279857879423010"
-        },
-        {
-          "file": "src/libs/feature-profile-header/src/index.ts",
-          "hash": "12654707337648708069"
-        },
-        {
-          "file": "src/libs/feature-profile-header/src/lib/feature-profile-header.component.scss",
-          "hash": "6805352567635985845"
-        },
-        {
-          "file": "src/libs/feature-profile-header/src/lib/feature-profile-header.component.ts",
-          "hash": "10417545903903492921",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "npm:@angular/material"
-          ]
-        },
-        {
-          "file": "src/libs/feature-profile-header/src/test-setup.ts",
-          "hash": "12935735732682149507",
-          "deps": [
-            "npm:jest-preset-angular"
-          ]
-        },
-        {
-          "file": "src/libs/feature-profile-header/tsconfig.json",
-          "hash": "8526453262384300416"
-        },
-        {
-          "file": "src/libs/feature-profile-header/tsconfig.lib.json",
-          "hash": "6020606002228403423"
-        },
-        {
-          "file": "src/libs/feature-profile-header/tsconfig.spec.json",
-          "hash": "7159729809249402441"
-        }
-      ],
       "feature-content-selector-tabs": [
         {
           "file": "src/libs/feature-content-selector-tabs/.eslintrc.json",
@@ -381,11 +484,12 @@
         },
         {
           "file": "src/libs/feature-content-selector-tabs/src/lib/feature-content-selector-tabs/feature-content-selector-tabs.component.ts",
-          "hash": "12358354297145383144",
+          "hash": "7906157196824911131",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
-            "npm:@angular/material"
+            "npm:@angular/material",
+            "feature-photo-list"
           ]
         },
         {
@@ -406,104 +510,6 @@
         {
           "file": "src/libs/feature-content-selector-tabs/tsconfig.spec.json",
           "hash": "7159729809249402441"
-        }
-      ],
-      "feature-profile-stories": [
-        {
-          "file": "src/libs/feature-profile-stories/.eslintrc.json",
-          "hash": "408602695467058979"
-        },
-        {
-          "file": "src/libs/feature-profile-stories/jest.config.ts",
-          "hash": "6735682763068742685"
-        },
-        {
-          "file": "src/libs/feature-profile-stories/project.json",
-          "hash": "2388800361376344281"
-        },
-        {
-          "file": "src/libs/feature-profile-stories/src/index.ts",
-          "hash": "190389105875437992"
-        },
-        {
-          "file": "src/libs/feature-profile-stories/src/lib/feature-profile-stories.component.scss",
-          "hash": "13558052512060601407"
-        },
-        {
-          "file": "src/libs/feature-profile-stories/src/lib/feature-profile-stories.component.ts",
-          "hash": "15800175223637068667",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "src/libs/feature-profile-stories/src/test-setup.ts",
-          "hash": "12935735732682149507",
-          "deps": [
-            "npm:jest-preset-angular"
-          ]
-        },
-        {
-          "file": "src/libs/feature-profile-stories/tsconfig.json",
-          "hash": "8526453262384300416"
-        },
-        {
-          "file": "src/libs/feature-profile-stories/tsconfig.lib.json",
-          "hash": "6020606002228403423"
-        },
-        {
-          "file": "src/libs/feature-profile-stories/tsconfig.spec.json",
-          "hash": "7159729809249402441"
-        }
-      ],
-      "feature-photo-list": [
-        {
-          "file": "src/libs/feature-photo-list/.eslintrc.json",
-          "hash": "408602695467058979"
-        },
-        {
-          "file": "src/libs/feature-photo-list/jest.config.ts",
-          "hash": "9838629307216609"
-        },
-        {
-          "file": "src/libs/feature-photo-list/project.json",
-          "hash": "2337723131536297805"
-        },
-        {
-          "file": "src/libs/feature-photo-list/src/index.ts",
-          "hash": "18417988065604799430"
-        },
-        {
-          "file": "src/libs/feature-photo-list/src/lib/feature-photo-list/feature-photo-list.component.ts",
-          "hash": "10629614999983839031",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "src/libs/feature-photo-list/src/test-setup.ts",
-          "hash": "12935735732682149507",
-          "deps": [
-            "npm:jest-preset-angular"
-          ]
-        },
-        {
-          "file": "src/libs/feature-photo-list/tsconfig.json",
-          "hash": "8526453262384300416"
-        },
-        {
-          "file": "src/libs/feature-photo-list/tsconfig.lib.json",
-          "hash": "6020606002228403423"
-        },
-        {
-          "file": "src/libs/feature-photo-list/tsconfig.spec.json",
-          "hash": "7159729809249402441"
-        },
-        {
-          "file": "src/libs/feature-photo-list/src/lib/feature-photo-list/feature-photo-list.component.scss",
-          "hash": "3244421341483603138"
         }
       ]
     }
