@@ -19,9 +19,9 @@ import {MatButton} from "@angular/material/button";
         </div>
       </div>
       <div class="profile-info">
-        <span>{{'Posty: 155'}}</span>
-        <span>{{'413 obserwujących'}}</span>
-        <span>{{'Obserwowani: 255'}}</span>
+        <span>{{'Posts: 155'}}</span>
+        <span>{{'413 followers'}}</span>
+        <span>{{'Following: 255'}}</span>
       </div>
       <div class="description">
         {{"'Welcome to my world of captured moments! 📸 As a passionate photography enthusiast and avid traveler, I'm constantly on the lookout for the next breathtaking vista or hidden gem to immortalize through my lens. Join me on my journey as I explore the beauty of landscapes, cultures, and the simple joys of life. Let's wander together and discover the extraordinary in the ordinary. ✈️ #AdventureAwaits'"}}

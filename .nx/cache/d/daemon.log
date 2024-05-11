@@ -2713,3 +2713,44 @@
 [NX Daemon Server] - 2024-05-11T17:25:33.065Z - Time taken for 'Load Nx Plugin: /home/users/jlavrinovics/Pulpit/studying/IV sem/porz/Instaverse/node_modules/nx/src/plugins/project-json/build-nodes/package-json-next-to-project-json' 0.8880210001952946ms
 [NX Daemon Server] - 2024-05-11T17:28:08.896Z - Closed a connection. Number of open connections: 1
 [NX Daemon Server] - 2024-05-11T17:28:08.932Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-11T17:30:19.636Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T17:30:25.054Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T17:31:02.496Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T17:31:06.322Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T17:31:06.982Z - [WATCHER]: src/libs/feature-profile-header/src/lib/feature-profile-header.component.ts was modified
+[NX Daemon Server] - 2024-05-11T17:31:06.983Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T17:31:07.728Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T17:31:12.825Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T17:31:12.826Z - [WATCHER]: src/libs/feature-profile-header/src/lib/feature-profile-header.component.ts was modified
+[NX Daemon Server] - 2024-05-11T17:31:12.953Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T17:31:13.384Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-11T17:31:13.385Z - [REQUEST]: src/libs/feature-profile-header/src/lib/feature-profile-header.component.ts
+[NX Daemon Server] - 2024-05-11T17:31:13.385Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-11T17:31:13.421Z - Time taken for 'Load Nx Plugin: /home/users/jlavrinovics/Pulpit/studying/IV sem/porz/Instaverse/node_modules/nx/src/plugins/project-json/build-nodes/package-json-next-to-project-json' 0.4537820001132786ms
+[NX Daemon Server] - 2024-05-11T17:31:14.611Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T17:31:21.101Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-11T17:31:21.101Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-11T17:31:21.102Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-11T17:31:21.103Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-11T17:31:21.103Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-11T17:31:21.104Z - Time taken for 'total for creating and serializing project graph' 0.3971299999393523ms
+[NX Daemon Server] - 2024-05-11T17:31:21.105Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-11T17:31:21.105Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 2.
+[NX Daemon Server] - 2024-05-11T17:31:21.137Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-11T17:31:21.137Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-11T17:31:21.137Z - Handled HASH_TASKS. Handling time: 11. Response time: 0.
+[NX Daemon Server] - 2024-05-11T17:31:21.137Z - Time taken for 'Load Nx Plugin: /home/users/jlavrinovics/Pulpit/studying/IV sem/porz/Instaverse/node_modules/nx/src/plugins/project-json/build-nodes/package-json-next-to-project-json' 0.15407299995422363ms
+[NX Daemon Server] - 2024-05-11T17:31:21.935Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-11T17:31:21.936Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-11T17:31:21.936Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-11T17:31:21.937Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-11T17:31:21.937Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-11T17:31:21.938Z - Time taken for 'total for creating and serializing project graph' 0.42281699972227216ms
+[NX Daemon Server] - 2024-05-11T17:31:21.939Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-11T17:31:21.939Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 2.
+[NX Daemon Server] - 2024-05-11T17:31:23.092Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T17:31:23.183Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T17:31:24.350Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-11T18:27:23.091Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-11T18:27:23.114Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-11T18:27:23.513Z - [WATCHER]: Processing file changes in outputs

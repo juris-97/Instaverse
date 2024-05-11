@@ -198,7 +198,7 @@
         },
         {
           "file": "src/libs/feature-profile-header/src/lib/feature-profile-header.component.ts",
-          "hash": "14166243386546490151",
+          "hash": "5787879574705065957",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
