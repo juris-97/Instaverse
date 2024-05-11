@@ -1,0 +1,25 @@
+:host {
+  .stories-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+    .story {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .story-title {
+        margin-top: 5px;
+        font-size: 12px;
+      }
+    }
+  }
+}

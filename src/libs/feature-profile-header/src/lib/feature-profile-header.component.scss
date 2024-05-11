@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  margin-top: 20px;
+
+  .img-wrapper {
+    margin-right: 80px;
+  }
+
+  .profile-btns {
+    display: flex;
+    gap: 10px;
+
+    button {
+      background-color: #EFEFEFFF;
+    }
+  }
+
+  .profile-img {
+    border-radius: 50%;
+  }
+
+  .profile-name-with-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px;
+
+    .profile-name {
+      margin-right: 10px;
+      font-weight: 400;
+    }
+  }
+
+  .profile-info {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    font-weight: 700;
+  }
+
+  .description {
+    border-radius: 10px;
+    background-color: rgba(241, 235, 235, 0.48);
+    padding: 5px;
+  }
+
+}

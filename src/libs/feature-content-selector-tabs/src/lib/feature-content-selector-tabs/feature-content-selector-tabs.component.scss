@@ -1,0 +1,12 @@
+:host {
+
+  .tab-group {
+    margin-top: 20px;
+    flex-direction: column;
+  }
+
+  .grid-icon, .reel-icon, .tagged-icon {
+    width: 16px;
+    margin-right: 4px;
+  }
+}

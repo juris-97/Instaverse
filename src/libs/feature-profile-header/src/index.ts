@@ -1,1 +1,1 @@
-export * from './lib/feature-profile-header/feature-profile-header.component';
+export {FeatureProfileHeaderComponent} from './lib/feature-profile-header.component';

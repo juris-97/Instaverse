@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -11,7 +12,18 @@
     "lib": ["ES2022", "dom"],
     "skipLibCheck": true,
     "paths": {
-      "feature-profile-header": ["./libs/feature-profile-header/src/index.ts"]
+      "@feature-content-selector-tabs": [
+        "./src/libs/feature-content-selector-tabs/src/index.ts"
+      ],
+      "@feature-profile-header": [
+        "./src/libs/feature-profile-header/src/index.ts"
+      ],
+      "@feature-profile-stories": [
+        "./src/libs/feature-profile-stories/src/index.ts"
+      ],
+      "@feature-photo-list": [
+        "./src/libs/feature-photo-list/src/index.ts"
+      ]
     }
   }
 }
