@@ -1,6 +1,6 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import {bootstrapApplication} from '@angular/platform-browser';
+import {instaverseAppConfig} from './app/instaverse-app.config';
+import {InstaverseAppComponent} from './app/instaverse-app.component';
 
-bootstrapApplication(AppComponent, appConfig)
+bootstrapApplication(InstaverseAppComponent, instaverseAppConfig)
   .catch((err) => console.error(err));
