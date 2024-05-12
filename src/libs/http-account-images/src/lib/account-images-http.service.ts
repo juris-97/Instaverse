@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, of} from "rxjs";
-import {PostImage} from "./model/post-image";
+import {Observable} from "rxjs";
+import {PostImage} from "@model-account";
 
 
 @Injectable({
@@ -11,13 +11,12 @@ export class AccountImagesHttpService {
   constructor(private httpClient: HttpClient) {
   }
 
-  uploadImage(newFile: File, fileName: string): Observable<void> {
+  uploadImage(newFile: File): Observable<PostImage> {
     const formData = new FormData();
     formData.append('file', newFile);
-    formData.append('filename', fileName)
-    formData.append('altName', 'dupa')
-    this.httpClient.post<void>(`api/posts/save`, formData).subscribe();
-    return of()
+    formData.append('filename', newFile.name)
+    formData.append('altName', 'Image')
+    return this.httpClient.post<PostImage>(`api/posts/save`, formData);
   }
 
   getAllPosts(): Observable<PostImage[]> {

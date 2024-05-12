@@ -2,10 +2,10 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {MatButton} from '@angular/material/button';
 import {DataStore} from '@store';
-import {AccountDetails} from '@model-account-details';
 import {combineLatest, map, Observable} from 'rxjs';
 import {MatDialog} from '@angular/material/dialog';
 import {FeatureDialogComponent} from '@feature-dialog';
+import {AccountDetails} from "@model-account";
 
 interface AccountDetailsViewModel {
   accountDetails: AccountDetails;
@@ -25,7 +25,7 @@ interface AccountDetailsViewModel {
           <h2 class="profile-name">{{ this.INSTA_ACCOUNT_NAME }}</h2>
           <div class="profile-btns">
             <button mat-stroked-button color="secondary">Change profile</button>
-            <button mat-stroked-button color="secondary" (click)="openDialog('0ms', '0ms')">Add image</button>
+            <button mat-stroked-button color="secondary" (click)="openDialog('200ms', '200ms')">Add image</button>
           </div>
         </div>
         <div class="profile-info">

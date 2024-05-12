@@ -24,8 +24,8 @@
         "./src/libs/feature-profile-stories/src/index.ts"
       ],
       "@http-account-details": ["./src/libs/http-account-details/src/index.ts"],
-      "@model-account-details": [
-        "./src/libs/model-account-details/src/index.ts"
+      "@model-account": [
+        "./src/libs/model-account/src/index.ts"
       ],
       "@store": ["./src/libs/store/src/index.ts"],
       "@http-account-images": ["./src/libs/http-account-images/src/index.ts"]

@@ -7,7 +7,7 @@ import {
   MatDialogRef,
   MatDialogTitle
 } from "@angular/material/dialog";
-import {AccountImagesHttpService} from "@http-account-images";
+import {DataStore} from "@store";
 
 @Component({
   selector: 'inst-feature-dialog',
@@ -15,13 +15,13 @@ import {AccountImagesHttpService} from "@http-account-images";
   imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
   template: `
     <h2 mat-dialog-title>Add new post</h2>
-    <mat-dialog-content>
+    <mat-dialog-content class="content">
       Browse image you want to upload
-      <input type="file" (change)="onFileSelected($event)">
+      <input class="upload-input" type="file" (change)="onFileSelected($event)">
     </mat-dialog-content>
     <mat-dialog-actions>
-      <button mat-button mat-dialog-close>Cancel</button>
-      <button mat-button cdkFocusInitial (click)="onSubmit()">Upload</button>
+      <button mat-button color="warn" mat-dialog-close>Cancel</button>
+      <button mat-button cdkFocusInitial (click)="onSubmit()" [disabled]="!selectedFile">Upload</button>
     </mat-dialog-actions>
   `,
   styleUrl: './feature-dialog.component.scss',
@@ -30,22 +30,22 @@ import {AccountImagesHttpService} from "@http-account-images";
 export class FeatureDialogComponent {
 
   selectedFile: File | null = null;
-  fileName = '';
+
   onFileSelected(event: Event) {
     const target = event.target as HTMLInputElement;
     const files = target.files as FileList;
     this.selectedFile = files[0];
-    this.dialogRef.close();
   }
 
   onSubmit(): void {
     if (this.selectedFile) {
-      this.accountImagesHttpService.uploadImage(this.selectedFile, this.selectedFile?.name);
+      this.dataStore.uploadPostImage(this.selectedFile)
+      this.dialogRef.close();
     }
   }
 
   constructor(public dialogRef: MatDialogRef<FeatureDialogComponent>,
-              private accountImagesHttpService: AccountImagesHttpService) {
+              private dataStore: DataStore) {
   }
 
 }

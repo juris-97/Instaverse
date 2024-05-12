@@ -12,9 +12,9 @@ import {
 import {MatButton} from '@angular/material/button';
 import {CdkDrag, DragDropModule, moveItemInArray} from '@angular/cdk/drag-drop';
 import {MixedCdkDragDropModule, MixedCdkDragSizeHelperDirective} from 'angular-mixed-cdk-drag-drop';
-import {PostImage} from "@http-account-images";
 import {DataStore} from "@store";
 import {combineLatest, map, Observable, take} from "rxjs";
+import {PostImage} from "@model-account";
 
 interface PostImagesViewModel {
   postsImages: PostImage[];
