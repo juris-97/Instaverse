@@ -15,6 +15,7 @@
       "@feature-content-selector-tabs": [
         "./src/libs/feature-content-selector-tabs/src/index.ts"
       ],
+      "@feature-dialog": ["./src/libs/feature-dialog/src/index.ts"],
       "@feature-photo-list": ["./src/libs/feature-photo-list/src/index.ts"],
       "@feature-profile-header": [
         "./src/libs/feature-profile-header/src/index.ts"
@@ -23,8 +24,11 @@
         "./src/libs/feature-profile-stories/src/index.ts"
       ],
       "@http-account-details": ["./src/libs/http-account-details/src/index.ts"],
-      "@model-account-details": ["./src/libs/model-account-details/src/index.ts"],
-      "@store": ["./src/libs/store/src/index.ts"]
+      "@model-account-details": [
+        "./src/libs/model-account-details/src/index.ts"
+      ],
+      "@store": ["./src/libs/store/src/index.ts"],
+      "@http-image-upload": ["./src/libs/http-image-upload/src/index.ts"]
     }
   }
 }

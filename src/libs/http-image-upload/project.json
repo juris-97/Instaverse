@@ -1,0 +1,20 @@
+{
+  "name": "http-image-upload",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "src/libs/http-image-upload/src",
+  "prefix": "inst",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:http"],
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "src/libs/http-image-upload/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

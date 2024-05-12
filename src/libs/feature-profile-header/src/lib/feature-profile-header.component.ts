@@ -1,9 +1,11 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
-import {MatButton} from "@angular/material/button";
-import {DataStore} from "@store";
-import {AccountDetails} from "@model-account-details";
-import {combineLatest, map, Observable} from "rxjs";
+import {MatButton} from '@angular/material/button';
+import {DataStore} from '@store';
+import {AccountDetails} from '@model-account-details';
+import {combineLatest, map, Observable} from 'rxjs';
+import {MatDialog} from '@angular/material/dialog';
+import {FeatureDialogComponent} from '@feature-dialog';
 
 interface AccountDetailsViewModel {
   accountDetails: AccountDetails;
@@ -23,7 +25,7 @@ interface AccountDetailsViewModel {
           <h2 class="profile-name">{{ this.INSTA_ACCOUNT_NAME }}</h2>
           <div class="profile-btns">
             <button mat-stroked-button color="secondary">Change profile</button>
-            <button mat-stroked-button color="secondary">Add image</button>
+            <button mat-stroked-button color="secondary" (click)="openDialog('0ms', '0ms')">Add image</button>
           </div>
         </div>
         <div class="profile-info">
@@ -52,12 +54,21 @@ export class FeatureProfileHeaderComponent implements OnInit{
     }))
   );
 
-  constructor(private dataStore: DataStore) {
+  constructor(private dataStore: DataStore,
+              public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
     console.log(this.INSTA_ACCOUNT_NAME);
     this.dataStore.fetchAccountDetails(this.INSTA_ACCOUNT_NAME);
+  }
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(FeatureDialogComponent, {
+      width: '450px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 
 }
