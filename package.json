@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "nx serve",
+    "start": "nx serve --proxyConfig src/proxy/local.json",
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
     "test": "nx test"
@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "@ngrx/component-store": "^17.2.0",
     "angular-mixed-cdk-drag-drop": "^2.2.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

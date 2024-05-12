@@ -11,5 +11,5 @@ coverage/
 .vscode
 instaverse-client/.angular
 instaverse-client/.nx/cache
-
+.nx
 .angular

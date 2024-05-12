@@ -1,34 +1,63 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {MatButton} from "@angular/material/button";
+import {DataStore} from "@store";
+import {AccountDetails} from "@model-account-details";
+import {combineLatest, map, Observable} from "rxjs";
+
+interface AccountDetailsViewModel {
+  accountDetails: AccountDetails;
+}
 
 @Component({
   selector: 'inst-profile-header',
   standalone: true,
   imports: [CommonModule, NgOptimizedImage, MatButton],
   template: `
-    <div class="img-wrapper">
-      <img class="profile-img" ngSrc="assets/profile.jpg" alt="profile image" width="150" height="150" priority>
-    </div>
-    <div class="profile-info-wrapper">
-      <div class="profile-name-with-actions">
-        <h2 class="profile-name">{{'juris_lavs'}}</h2>
-        <div class="profile-btns">
-          <button mat-stroked-button color="secondary">Change profile</button>
-          <button mat-stroked-button color="secondary">Add image</button>
+    @if (vm$ | async; as vm) {
+      <div class="img-wrapper">
+        <img class="profile-img" ngSrc="assets/profile.jpg" alt="profile image" width="150" height="150" priority>
+      </div>
+      <div class="profile-info-wrapper">
+        <div class="profile-name-with-actions">
+          <h2 class="profile-name">{{ this.INSTA_ACCOUNT_NAME }}</h2>
+          <div class="profile-btns">
+            <button mat-stroked-button color="secondary">Change profile</button>
+            <button mat-stroked-button color="secondary">Add image</button>
+          </div>
+        </div>
+        <div class="profile-info">
+          <span>Posts: {{ vm.accountDetails.postsCount }}</span>
+          <span>{{ vm.accountDetails.followers }} followers</span>
+          <span>Following {{ vm.accountDetails.following }}</span>
+        </div>
+        <div class="description">
+          {{ vm.accountDetails.description }}
         </div>
       </div>
-      <div class="profile-info">
-        <span>{{'Posts: 155'}}</span>
-        <span>{{'413 followers'}}</span>
-        <span>{{'Following: 255'}}</span>
-      </div>
-      <div class="description">
-        {{"'Welcome to my world of captured moments! 📸 As a passionate photography enthusiast and avid traveler, I'm constantly on the lookout for the next breathtaking vista or hidden gem to immortalize through my lens. Join me on my journey as I explore the beauty of landscapes, cultures, and the simple joys of life. Let's wander together and discover the extraordinary in the ordinary. ✈️ #AdventureAwaits'"}}
-      </div>
-    </div>
+    }
   `,
   styleUrl: './feature-profile-header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FeatureProfileHeaderComponent {}
+export class FeatureProfileHeaderComponent implements OnInit{
+
+  readonly INSTA_ACCOUNT_NAME: string= 'juris_lavs';
+
+  vm$: Observable<AccountDetailsViewModel> = combineLatest([
+    this.dataStore.accountDetails$,
+  ]).pipe(
+    map(([accountDetails]) => ({
+      accountDetails
+    }))
+  );
+
+  constructor(private dataStore: DataStore) {
+  }
+
+  ngOnInit(): void {
+    console.log(this.INSTA_ACCOUNT_NAME);
+    this.dataStore.fetchAccountDetails(this.INSTA_ACCOUNT_NAME);
+  }
+
+}

@@ -48,8 +48,9 @@ interface Photo {
               <img mat-card-image
                    cdkDrag
                    mixedCdkDragSizeHelper
-                   [ngSrc]="photo.src"
+                   priority
                    alt="{{photo.alt}}"
+                   [ngSrc]="photo.src"
                    [width]="photo.width"
                    [height]="photo.height"
                    (contentBoxSize)="onSizeChange($event)"
