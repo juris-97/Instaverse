@@ -7,7 +7,7 @@ import {
   MatDialogRef,
   MatDialogTitle
 } from "@angular/material/dialog";
-import {ImageUploadHttpService} from "@http-image-upload";
+import {AccountImagesHttpService} from "@http-account-images";
 
 @Component({
   selector: 'inst-feature-dialog',
@@ -35,17 +35,17 @@ export class FeatureDialogComponent {
     const target = event.target as HTMLInputElement;
     const files = target.files as FileList;
     this.selectedFile = files[0];
-    //this.dialogRef.close();
+    this.dialogRef.close();
   }
 
   onSubmit(): void {
     if (this.selectedFile) {
-      this.imageUploadHttpService.uploadImage(this.selectedFile, this.selectedFile?.name);
+      this.accountImagesHttpService.uploadImage(this.selectedFile, this.selectedFile?.name);
     }
   }
 
   constructor(public dialogRef: MatDialogRef<FeatureDialogComponent>,
-              private imageUploadHttpService: ImageUploadHttpService) {
+              private accountImagesHttpService: AccountImagesHttpService) {
   }
 
 }

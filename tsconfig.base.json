@@ -28,7 +28,7 @@
         "./src/libs/model-account-details/src/index.ts"
       ],
       "@store": ["./src/libs/store/src/index.ts"],
-      "@http-image-upload": ["./src/libs/http-image-upload/src/index.ts"]
+      "@http-account-images": ["./src/libs/http-account-images/src/index.ts"]
     }
   }
 }

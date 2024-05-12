@@ -4,9 +4,11 @@ import {AccountDetails} from '@model-account-details';
 import {Observable, switchMap} from 'rxjs';
 import {HttpErrorResponse} from '@angular/common/http';
 import {AccountDetailsHttpService} from '@http-account-details';
+import {AccountImagesHttpService, PostImage} from "@http-account-images";
 
 export interface StoreState {
   accountDetails: AccountDetails;
+  postImages: PostImage[]
 }
 
 const initialState: StoreState = {
@@ -16,7 +18,8 @@ const initialState: StoreState = {
     followers: 0,
     following: 0,
     postsCount: 0
-  }
+  },
+  postImages: []
 };
 
 @Injectable({
@@ -28,7 +31,12 @@ export class DataStore extends ComponentStore<StoreState> {
     (state) => state.accountDetails
   );
 
-  constructor(private accountDetailsHttpService: AccountDetailsHttpService) {
+  readonly postImages$: Observable<PostImage[]> = this.select(
+    (state) => state.postImages
+  )
+
+  constructor(private accountDetailsHttpService: AccountDetailsHttpService,
+              private accountImagesHttpService: AccountImagesHttpService) {
     super(initialState);
   }
 
@@ -38,6 +46,19 @@ export class DataStore extends ComponentStore<StoreState> {
         this.accountDetailsHttpService.getAccountDetails(accountName).pipe(
           tapResponse({
             next: (accountDetails) => this.patchState({accountDetails}),
+            error: (error: HttpErrorResponse) => console.log(error.message)
+          })
+        )
+      )
+    )
+  );
+
+  fetchAllPosts = this.effect<void>(trigger$ =>
+    trigger$.pipe(
+      switchMap(() =>
+        this.accountImagesHttpService.getAllPosts().pipe(
+          tapResponse({
+            next: (postImages) => this.patchState({postImages}),
             error: (error: HttpErrorResponse) => console.log(error.message)
           })
         )
