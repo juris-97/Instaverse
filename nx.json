@@ -49,7 +49,6 @@
       "!{projectRoot}/eslint.config.js"
     ]
   },
-  "nxCloudAccessToken": "MmZmOWRhN2YtZjZlNS00YWJhLWI2ZGItYWU5NDY0MzNhMmU3fHJlYWQtd3JpdGU=",
   "generators": {
     "@nx/angular:library": {
       "linter": "eslint",
