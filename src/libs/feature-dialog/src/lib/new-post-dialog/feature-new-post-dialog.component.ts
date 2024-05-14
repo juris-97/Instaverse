@@ -10,7 +10,7 @@ import {
 import {DataStore} from "@store";
 
 @Component({
-  selector: 'inst-feature-dialog',
+  selector: 'inst-feature-new-post-dialog',
   standalone: true,
   imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
   template: `
@@ -24,10 +24,10 @@ import {DataStore} from "@store";
       <button mat-button cdkFocusInitial (click)="onSubmit()" [disabled]="!selectedFile">Upload</button>
     </mat-dialog-actions>
   `,
-  styleUrl: './feature-dialog.component.scss',
+  styleUrl: './feature-new-post-dialog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FeatureDialogComponent {
+export class FeatureNewPostDialogComponent {
 
   selectedFile: File | null = null;
 
@@ -44,7 +44,7 @@ export class FeatureDialogComponent {
     }
   }
 
-  constructor(public dialogRef: MatDialogRef<FeatureDialogComponent>,
+  constructor(public dialogRef: MatDialogRef<FeatureNewPostDialogComponent>,
               private dataStore: DataStore) {
   }
 

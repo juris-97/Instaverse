@@ -4,7 +4,7 @@ import {MatButton} from '@angular/material/button';
 import {DataStore} from '@store';
 import {combineLatest, map, Observable} from 'rxjs';
 import {MatDialog} from '@angular/material/dialog';
-import {FeatureDialogComponent} from '@feature-dialog';
+import {FeatureEditProfileDialogComponent, FeatureNewPostDialogComponent} from '@feature-dialog';
 import {AccountDetails} from "@model-account";
 
 interface AccountDetailsViewModel {
@@ -22,10 +22,10 @@ interface AccountDetailsViewModel {
       </div>
       <div class="profile-info-wrapper">
         <div class="profile-name-with-actions">
-          <h2 class="profile-name">{{ this.INSTA_ACCOUNT_NAME }}</h2>
+          <h2 class="profile-name">{{ vm.accountDetails.accountName }}</h2>
           <div class="profile-btns">
-            <button mat-stroked-button color="secondary">Change profile</button>
-            <button mat-stroked-button color="secondary" (click)="openDialog('200ms', '200ms')">Add image</button>
+            <button mat-stroked-button color="secondary" (click)="onOpenEditProfileClicked()">Edit profile</button>
+            <button mat-stroked-button color="secondary" (click)="onAddNewImageClicked()">Add image</button>
           </div>
         </div>
         <div class="profile-info">
@@ -44,8 +44,6 @@ interface AccountDetailsViewModel {
 })
 export class FeatureProfileHeaderComponent implements OnInit{
 
-  readonly INSTA_ACCOUNT_NAME: string= 'juris_lavs';
-
   vm$: Observable<AccountDetailsViewModel> = combineLatest([
     this.dataStore.accountDetails$,
   ]).pipe(
@@ -59,15 +57,22 @@ export class FeatureProfileHeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    console.log(this.INSTA_ACCOUNT_NAME);
-    this.dataStore.fetchAccountDetails(this.INSTA_ACCOUNT_NAME);
+    this.dataStore.fetchAccountDetails();
   }
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(FeatureDialogComponent, {
+  onOpenEditProfileClicked(): void {
+    this.dialog.open(FeatureEditProfileDialogComponent, {
       width: '450px',
-      enterAnimationDuration,
-      exitAnimationDuration,
+      enterAnimationDuration: '200ms',
+      exitAnimationDuration: '200ms'
+    });
+  }
+
+  onAddNewImageClicked(): void {
+    this.dialog.open(FeatureNewPostDialogComponent, {
+      width: '450px',
+      enterAnimationDuration: '200ms',
+      exitAnimationDuration: '200ms'
     });
   }
 

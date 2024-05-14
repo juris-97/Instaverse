@@ -14,4 +14,8 @@ export class AccountDetailsHttpService {
     return this.httpClient.get<AccountDetails>(`api/account/details/${accountName}`)
   }
 
+  updateAccountDetails(updateData: FormData, accountName: string): Observable<AccountDetails> {
+    return this.httpClient.put<AccountDetails>(`/api/account/details/update/${accountName}`, updateData);
+  }
+
 }

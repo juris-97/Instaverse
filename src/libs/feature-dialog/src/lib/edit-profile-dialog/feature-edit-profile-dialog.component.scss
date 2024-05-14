@@ -1,0 +1,42 @@
+:host {
+
+  .content {
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .dialog-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .form-field {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+    overflow-y: auto;
+  }
+
+  .cancel-button {
+    margin-right: 10px;
+  }
+}
