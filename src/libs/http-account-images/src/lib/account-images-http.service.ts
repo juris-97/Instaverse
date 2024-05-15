@@ -11,13 +11,17 @@ export class AccountImagesHttpService {
   constructor(private httpClient: HttpClient) {
   }
 
-  uploadImage(newFile: File, accountName: string): Observable<PostImage> {
+  uploadImage(newFile: File): Observable<PostImage> {
     const formData = new FormData();
-    formData.append('accountName', accountName);
     formData.append('file', newFile);
     formData.append('filename', newFile.name)
     formData.append('altName', 'Image')
-    return this.httpClient.post<PostImage>(`api/posts/save/${accountName}`, formData);
+    console.log(formData);
+    return this.httpClient.post<PostImage>(`api/posts/save`, formData);
+  }
+
+  deletePost(postId: number): Observable<void> {
+    return this.httpClient.delete<void>(`api/posts/delete/${postId}`);
   }
 
   getAllPosts(): Observable<PostImage[]> {

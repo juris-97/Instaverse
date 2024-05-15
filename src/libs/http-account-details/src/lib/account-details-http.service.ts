@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {AccountDetails} from "@model-account";
+import {AccountDetails, EditAccountDetails} from "@model-account";
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +10,12 @@ export class AccountDetailsHttpService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getAccountDetails(accountName: string): Observable<AccountDetails> {
-    return this.httpClient.get<AccountDetails>(`api/account/details/${accountName}`)
+  getAccountDetails(): Observable<AccountDetails> {
+    return this.httpClient.get<AccountDetails>(`api/account/details`)
   }
 
-  updateAccountDetails(updateData: FormData, accountName: string): Observable<AccountDetails> {
-    return this.httpClient.put<AccountDetails>(`/api/account/details/update/${accountName}`, updateData);
+  updateAccountDetails(editAccountDetails: EditAccountDetails): Observable<AccountDetails> {
+    return this.httpClient.put<AccountDetails>(`/api/account/details/update`, editAccountDetails);
   }
 
 }

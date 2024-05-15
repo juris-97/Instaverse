@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {ComponentStore, tapResponse} from '@ngrx/component-store';
-import {Observable, switchMap, withLatestFrom} from 'rxjs';
+import {Observable, switchMap} from 'rxjs';
 import {HttpErrorResponse} from '@angular/common/http';
 import {AccountDetailsHttpService} from '@http-account-details';
 import {AccountImagesHttpService} from "@http-account-images";
-import {PostImage, AccountDetails} from "@model-account";
+import {PostImage, AccountDetails, EditAccountDetails} from "@model-account";
 
 export interface StoreState {
   accountDetails: AccountDetails;
@@ -13,7 +13,7 @@ export interface StoreState {
 
 const initialState: StoreState = {
   accountDetails: {
-    accountName: 'juris_lavs',
+    accountName: '',
     description: '',
     followers: 0,
     following: 0,
@@ -37,6 +37,8 @@ export class DataStore extends ComponentStore<StoreState> {
 
   readonly selectAccountName$ = this.select((state) => state.accountDetails.accountName);
 
+  readonly selectAccountDescription$ = this.select((state) => state.accountDetails.description);
+
   constructor(private accountDetailsHttpService: AccountDetailsHttpService,
               private accountImagesHttpService: AccountImagesHttpService) {
     super(initialState);
@@ -44,11 +46,8 @@ export class DataStore extends ComponentStore<StoreState> {
 
   fetchAccountDetails = this.effect<void>(trigger$ =>
     trigger$.pipe(
-      withLatestFrom(
-        this.selectAccountName$
-      ),
-      switchMap(([_, accountName]) =>
-        this.accountDetailsHttpService.getAccountDetails(accountName).pipe(
+      switchMap(() =>
+        this.accountDetailsHttpService.getAccountDetails().pipe(
           tapResponse({
             next: (accountDetails) => this.patchState({accountDetails}),
             error: (error: HttpErrorResponse) => console.log(error.message)
@@ -71,13 +70,31 @@ export class DataStore extends ComponentStore<StoreState> {
     )
   );
 
+  deletePostImage = this.effect<number>(trigger$ =>
+    trigger$.pipe(
+      switchMap((postId) =>
+        this.accountImagesHttpService.deletePost(postId).pipe(
+          tapResponse({
+            next: () => {
+              this.patchState((state: StoreState) => ({
+                postImages: state.postImages.filter(postImage => postImage.id !== postId),
+                accountDetails: {
+                  ...state.accountDetails,
+                  postsCount: state.accountDetails.postsCount - 1
+                }
+              }));
+            },
+            error: (error: HttpErrorResponse) => console.log(error.message)
+          })
+        )
+      )
+    )
+  );
+
   uploadPostImage = this.effect<File>(trigger$ =>
     trigger$.pipe(
-      withLatestFrom(
-        this.selectAccountName$
-      ),
-      switchMap(([file, accountName]) =>
-        this.accountImagesHttpService.uploadImage(file, accountName).pipe(
+      switchMap((file) =>
+        this.accountImagesHttpService.uploadImage(file).pipe(
           tapResponse({
             next: (postImage) => {
               this.patchState((state: StoreState) => ({
@@ -96,13 +113,10 @@ export class DataStore extends ComponentStore<StoreState> {
     )
   );
 
-  updateAccountDetails = this.effect<FormData>(trigger$ =>
+  updateAccountDetails = this.effect<EditAccountDetails>(trigger$ =>
     trigger$.pipe(
-      withLatestFrom(
-        this.selectAccountName$
-      ),
-      switchMap(([updateData, accountName]) =>
-        this.accountDetailsHttpService.updateAccountDetails(updateData, accountName).pipe(
+      switchMap((updateData) =>
+        this.accountDetailsHttpService.updateAccountDetails(updateData).pipe(
           tapResponse({
             next: (newAccountDetails) => {
               this.patchState((state: StoreState) => ({

@@ -9,12 +9,14 @@ import {
   MatCardSubtitle,
   MatCardTitle
 } from '@angular/material/card';
-import {MatButton} from '@angular/material/button';
+import {MatButton, MatIconButton} from '@angular/material/button';
 import {CdkDrag, DragDropModule, moveItemInArray} from '@angular/cdk/drag-drop';
 import {MixedCdkDragDropModule, MixedCdkDragSizeHelperDirective} from 'angular-mixed-cdk-drag-drop';
 import {DataStore} from "@store";
 import {combineLatest, map, Observable, take} from "rxjs";
 import {PostImage} from "@model-account";
+import {MatIcon} from "@angular/material/icon";
+import {MatDialogClose} from "@angular/material/dialog";
 
 interface PostImagesViewModel {
   postsImages: PostImage[];
@@ -36,6 +38,9 @@ interface PostImagesViewModel {
     MatCardTitle,
     DragDropModule,
     MixedCdkDragDropModule,
+    MatIcon,
+    MatIconButton,
+    MatDialogClose,
   ],
   template: `
     @if (vm$ | async; as vm) {
@@ -53,7 +58,15 @@ interface PostImagesViewModel {
                    alt="{{postImage.altName}}"
                    [src]="'data:image/png;base64,' + postImage.fileBytes"
                    (contentBoxSize)="onSizeChange($event)"
+                   (cdkDragStarted)="onDragStarted()"
+                   (cdkDragEnded)="onDragEnded()"
               >
+              <button class="remove-button"
+                      mat-icon-button
+                      [class.remove-hidden]="isDragging"
+                      (click)="removeImage(postImage.id)">
+                <mat-icon>close</mat-icon>
+              </button>
             </mat-card-content>
           </mat-card>
         }
@@ -64,6 +77,8 @@ interface PostImagesViewModel {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeaturePhotoListComponent implements OnInit {
+
+  isDragging = false;
 
   vm$: Observable<PostImagesViewModel> = combineLatest([
     this.dataStore.postImages$,
@@ -90,5 +105,17 @@ export class FeaturePhotoListComponent implements OnInit {
 
   onSizeChange(event: { drag: CdkDrag; containerSize: DOMRectReadOnly }): void {
     MixedCdkDragSizeHelperDirective.defaultEmitter(event, 0, 0);
+  }
+
+  removeImage(id: number): void {
+    this.dataStore.deletePostImage(id);
+  }
+
+  onDragStarted(): void {
+    this.isDragging = true;
+  }
+
+  onDragEnded(): void {
+    this.isDragging = false;
   }
 }

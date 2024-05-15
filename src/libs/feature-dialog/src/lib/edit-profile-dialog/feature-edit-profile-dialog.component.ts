@@ -9,25 +9,42 @@ import {
 } from "@angular/material/dialog";
 import {DataStore} from "@store";
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {AccountDetails, EditProfileForm} from "@model-account";
+import {EditAccountDetails, EditProfileForm} from "@model-account";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
+import {Observable} from "rxjs";
+import {AsyncPipe} from "@angular/common";
 
 @Component({
   selector: 'inst-feature-new-post-dialog',
   standalone: true,
-  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent, ReactiveFormsModule, MatFormField, MatInput, MatLabel],
+  imports: [
+    MatButtonModule,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogTitle,
+    MatDialogContent,
+    ReactiveFormsModule,
+    MatFormField,
+    MatInput,
+    MatLabel,
+    AsyncPipe
+  ],
   template: `
-    <h2 mat-dialog-title class="dialog-title">Edit Profile Details</h2>
+    <h2 mat-dialog-title class="dialog-title">Edit profile details</h2>
     <mat-dialog-content class="content">
       <form [formGroup]="formGroup" class="form">
         <mat-form-field class="form-field">
-          <mat-label>Add new account name</mat-label>
-          <input matInput formControlName="accountName" class="input"/>
+          <mat-label>Edit account name</mat-label>
+          <input [ngModel]="this.accountName$ | async" matInput formControlName="accountName" class="input"/>
         </mat-form-field>
         <mat-form-field class="form-field">
-          <mat-label>Add new account description</mat-label>
-          <textarea matInput formControlName="accountDescription" class="textarea"></textarea>
+          <mat-label>Edit description</mat-label>
+          <textarea class="textarea"
+                    matInput
+                    [ngModel]="this.description$ | async"
+                    formControlName="accountDescription">
+          </textarea>
         </mat-form-field>
       </form>
     </mat-dialog-content>
@@ -41,6 +58,9 @@ import {MatInput} from "@angular/material/input";
 })
 export class FeatureEditProfileDialogComponent {
 
+  readonly accountName$: Observable<string> = this.dataStore.selectAccountName$;
+  readonly description$: Observable<string> = this.dataStore.selectAccountDescription$;
+
   formGroup: FormGroup<EditProfileForm> = this.formBuilder.group<EditProfileForm>({
     accountName: this.formBuilder.control<string>(''),
     accountDescription: this.formBuilder.control<string>('')
@@ -52,16 +72,11 @@ export class FeatureEditProfileDialogComponent {
   }
 
   onSubmit(): void {
-    const updateData = new FormData();
-    const accountName = this.formGroup.getRawValue().accountName;
-    const accountDescription = this.formGroup.getRawValue().accountDescription;
-    if (accountName) {
-      updateData.append("newAccountName", accountName);
+    const newAccountDetails: EditAccountDetails = {
+      accountName: this.formGroup.value.accountName,
+      description: this.formGroup.value.accountDescription
     }
-    if (accountDescription) {
-      updateData.append("newAccountDescription", accountDescription);
-    }
-    this.dataStore.updateAccountDetails(updateData);
+    this.dataStore.updateAccountDetails(newAccountDetails);
     this.dialogRef.close();
   }
 }
