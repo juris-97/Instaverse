@@ -8,6 +8,7 @@ import {
   MatDialogTitle
 } from "@angular/material/dialog";
 import {DataStore} from "@store";
+import {UploadImageStatus} from "@model-account";
 
 @Component({
   selector: 'inst-feature-new-post-dialog',
@@ -29,6 +30,7 @@ import {DataStore} from "@store";
 })
 export class FeatureNewPostDialogComponent {
 
+  UploadImageStatus: typeof UploadImageStatus = UploadImageStatus;
   selectedFile: File | null = null;
 
   onFileSelected(event: Event) {
@@ -39,6 +41,7 @@ export class FeatureNewPostDialogComponent {
 
   onSubmit(): void {
     if (this.selectedFile) {
+      this.dataStore.updateUploadImageStatus(this.UploadImageStatus.LOADING);
       this.dataStore.uploadPostImage(this.selectedFile)
       this.dialogRef.close();
     }

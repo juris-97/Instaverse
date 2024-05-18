@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://instaverse-server-juris-97-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Connection": "keep-alive"
+    }
+  }
+}

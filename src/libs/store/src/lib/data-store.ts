@@ -3,12 +3,13 @@ import {ComponentStore, tapResponse} from '@ngrx/component-store';
 import {Observable, switchMap} from 'rxjs';
 import {HttpErrorResponse} from '@angular/common/http';
 import {AccountDetailsHttpService} from '@http-account-details';
-import {AccountImagesHttpService} from "@http-account-images";
-import {PostImage, AccountDetails, EditAccountDetails} from "@model-account";
+import {AccountImagesHttpService} from '@http-account-images';
+import {AccountDetails, EditAccountDetails, PostImage, UploadImageStatus} from '@model-account';
 
 export interface StoreState {
   accountDetails: AccountDetails;
-  postImages: PostImage[]
+  postImages: PostImage[],
+  uploadImageStatus: UploadImageStatus
 }
 
 const initialState: StoreState = {
@@ -19,7 +20,8 @@ const initialState: StoreState = {
     following: 0,
     postsCount: 0
   },
-  postImages: []
+  postImages: [],
+  uploadImageStatus: UploadImageStatus.LOADED
 };
 
 @Injectable({
@@ -33,7 +35,11 @@ export class DataStore extends ComponentStore<StoreState> {
 
   readonly postImages$: Observable<PostImage[]> = this.select(
     (state) => state.postImages
-  )
+  );
+
+  readonly uploadStatus$: Observable<UploadImageStatus> = this.select(
+    (state) => state.uploadImageStatus
+  );
 
   readonly selectAccountName$ = this.select((state) => state.accountDetails.accountName);
 
@@ -42,6 +48,10 @@ export class DataStore extends ComponentStore<StoreState> {
   constructor(private accountDetailsHttpService: AccountDetailsHttpService,
               private accountImagesHttpService: AccountImagesHttpService) {
     super(initialState);
+  }
+
+  updateUploadImageStatus(status: UploadImageStatus) {
+    this.patchState({uploadImageStatus: status});
   }
 
   fetchAccountDetails = this.effect<void>(trigger$ =>
@@ -103,7 +113,8 @@ export class DataStore extends ComponentStore<StoreState> {
                 accountDetails: {
                   ...state.accountDetails,
                   postsCount: state.accountDetails.postsCount + 1
-                }
+                },
+                uploadImageStatus: UploadImageStatus.LOADED
               }));
             },
             error: (error: HttpErrorResponse) => console.log(error.message)

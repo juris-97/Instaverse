@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "nx serve --proxyConfig src/proxy/local.json",
+    "start": "nx serve --proxyConfig src/proxy/local.json --port=4200",
+    "start-prod": "nx serve --proxyConfig src/proxy/prod.json --port=4201",
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
     "test": "nx test"
