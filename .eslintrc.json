@@ -13,8 +13,20 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": ["type:feature", "type:model", "type:http", "type:store"]
+              },
+              {
+                "sourceTag": "type:store",
+                "onlyDependOnLibsWithTags": ["type:store", "type:model", "type:http"]
+              },
+              {
+                "sourceTag": "type:http",
+                "onlyDependOnLibsWithTags": ["type:store", "type:model", "type:http"]
+              },
+              {
+                "sourceTag": "type:model",
+                "onlyDependOnLibsWithTags": ["type:model"]
               }
             ]
           }
@@ -24,7 +36,15 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        "@angular-eslint/prefer-on-push-component-change-detection": "error",
+        "quotes": [
+          "error",
+          "single",
+          { "avoidEscape": true, "allowTemplateLiterals": true }
+        ],
+        "semi": ["error", "always"]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

@@ -5,7 +5,7 @@ import {DataStore} from '@store';
 import {combineLatest, map, Observable} from 'rxjs';
 import {MatDialog} from '@angular/material/dialog';
 import {FeatureEditProfileDialogComponent, FeatureNewPostDialogComponent} from '@feature-dialog';
-import {AccountDetails} from "@model-account";
+import {AccountDetails} from '@model-account';
 
 interface AccountDetailsViewModel {
   accountDetails: AccountDetails;

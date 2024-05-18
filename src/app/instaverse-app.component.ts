@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import {FeatureProfileHeaderComponent} from "@feature-profile-header";
-import {FeatureProfileStoriesComponent} from "@feature-profile-stories";
-import {FeatureContentSelectorTabsComponent} from "@feature-content-selector-tabs";
-import {MatIconRegistry} from "@angular/material/icon";
-import {DomSanitizer} from "@angular/platform-browser";
+import {FeatureProfileHeaderComponent} from '@feature-profile-header';
+import {FeatureProfileStoriesComponent} from '@feature-profile-stories';
+import {FeatureContentSelectorTabsComponent} from '@feature-content-selector-tabs';
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'instaverse-app',
@@ -34,10 +34,10 @@ export class InstaverseAppComponent {
   constructor(private matIconRegistry: MatIconRegistry,
               private domSanitizer: DomSanitizer) {
     this.matIconRegistry.addSvgIcon('grid',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/grid.svg'))
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/grid.svg'));
     this.matIconRegistry.addSvgIcon('reel',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/reel.svg'))
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/reel.svg'));
     this.matIconRegistry.addSvgIcon('tag',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/tag.svg'))
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/tag.svg'));
   }
 }

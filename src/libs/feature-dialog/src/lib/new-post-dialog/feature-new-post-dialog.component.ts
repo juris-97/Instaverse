@@ -1,14 +1,14 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {MatButtonModule} from "@angular/material/button";
+import {MatButtonModule} from '@angular/material/button';
 import {
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
   MatDialogRef,
   MatDialogTitle
-} from "@angular/material/dialog";
-import {DataStore} from "@store";
-import {UploadImageStatus} from "@model-account";
+} from '@angular/material/dialog';
+import {DataStore} from '@store';
+import {UploadImageStatus} from '@model-account';
 
 @Component({
   selector: 'inst-feature-new-post-dialog',
@@ -42,7 +42,7 @@ export class FeatureNewPostDialogComponent {
   onSubmit(): void {
     if (this.selectedFile) {
       this.dataStore.updateUploadImageStatus(this.UploadImageStatus.LOADING);
-      this.dataStore.uploadPostImage(this.selectedFile)
+      this.dataStore.uploadPostImage(this.selectedFile);
       this.dialogRef.close();
     }
   }

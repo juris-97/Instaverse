@@ -12,12 +12,12 @@ import {
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {CdkDrag, DragDropModule, moveItemInArray} from '@angular/cdk/drag-drop';
 import {MixedCdkDragDropModule, MixedCdkDragSizeHelperDirective} from 'angular-mixed-cdk-drag-drop';
-import {DataStore} from "@store";
-import {combineLatest, map, Observable, take} from "rxjs";
-import {PostImage, UploadImageStatus} from "@model-account";
-import {MatIcon} from "@angular/material/icon";
-import {MatDialogClose} from "@angular/material/dialog";
-import {MatProgressSpinner} from "@angular/material/progress-spinner";
+import {DataStore} from '@store';
+import {combineLatest, map, Observable, take} from 'rxjs';
+import {PostImage, UploadImageStatus} from '@model-account';
+import {MatIcon} from '@angular/material/icon';
+import {MatDialogClose} from '@angular/material/dialog';
+import {MatProgressSpinner} from '@angular/material/progress-spinner';
 
 interface PostImagesViewModel {
   postsImages: PostImage[];
@@ -85,7 +85,7 @@ interface PostImagesViewModel {
 export class FeaturePhotoListComponent implements OnInit {
 
   isDragging = false;
-  UploadImageStatus: typeof UploadImageStatus = UploadImageStatus
+  UploadImageStatus: typeof UploadImageStatus = UploadImageStatus;
 
   vm$: Observable<PostImagesViewModel> = combineLatest([
     this.dataStore.postImages$,

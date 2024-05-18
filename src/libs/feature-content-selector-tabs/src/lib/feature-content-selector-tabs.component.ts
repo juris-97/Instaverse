@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MatTab, MatTabGroup, MatTabLabel} from "@angular/material/tabs";
-import {MatIcon} from "@angular/material/icon";
-import {FeaturePhotoListComponent} from "@feature-photo-list";
+import {MatTab, MatTabGroup, MatTabLabel} from '@angular/material/tabs';
+import {MatIcon} from '@angular/material/icon';
+import {FeaturePhotoListComponent} from '@feature-photo-list';
 
 @Component({
   selector: 'inst-content-selector-tabs',
