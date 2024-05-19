@@ -21,7 +21,7 @@ const initialState: StoreState = {
     postsCount: 0
   },
   postImages: [],
-  uploadImageStatus: UploadImageStatus.LOADED
+  uploadImageStatus: UploadImageStatus.LOADING
 };
 
 @Injectable({
@@ -72,7 +72,7 @@ export class DataStore extends ComponentStore<StoreState> {
       switchMap(() =>
         this.accountImagesHttpService.getAllPosts().pipe(
           tapResponse({
-            next: (postImages) => this.patchState({postImages}),
+            next: (postImages) => this.patchState({postImages, uploadImageStatus: UploadImageStatus.LOADED}),
             error: (error: HttpErrorResponse) => console.log(error.message)
           })
         )
