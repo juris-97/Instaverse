@@ -6,7 +6,7 @@ import {combineLatest, map, Observable} from 'rxjs';
 import {MatDialog} from '@angular/material/dialog';
 import {FeatureEditProfileDialogComponent, FeatureNewPostDialogComponent} from '@feature-dialog';
 import {AccountDetails} from '@model-account';
-import {MatIcon} from "@angular/material/icon";
+import {MatIcon} from '@angular/material/icon';
 
 interface AccountDetailsViewModel {
   accountDetails: AccountDetails;
