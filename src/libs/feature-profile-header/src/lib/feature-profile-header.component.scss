@@ -20,7 +20,23 @@
   }
 
   .profile-img {
+    display: block;
+    object-fit: cover;
     border-radius: 50%;
+    border: 5px solid transparent;
+
+    background: linear-gradient(white, white), linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }
+
+  .name-with-icon {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .verified-icon {
+    margin-top: 4px;
   }
 
   .profile-name-with-actions {

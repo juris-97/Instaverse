@@ -6,6 +6,7 @@ import {combineLatest, map, Observable} from 'rxjs';
 import {MatDialog} from '@angular/material/dialog';
 import {FeatureEditProfileDialogComponent, FeatureNewPostDialogComponent} from '@feature-dialog';
 import {AccountDetails} from '@model-account';
+import {MatIcon} from "@angular/material/icon";
 
 interface AccountDetailsViewModel {
   accountDetails: AccountDetails;
@@ -14,15 +15,18 @@ interface AccountDetailsViewModel {
 @Component({
   selector: 'inst-profile-header',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, MatButton],
+  imports: [CommonModule, NgOptimizedImage, MatButton, MatIcon],
   template: `
     @if (vm$ | async; as vm) {
       <div class="img-wrapper">
-        <img class="profile-img" ngSrc="assets/profile.jpg" alt="profile image" width="150" height="150" priority>
+        <img class="profile-img" ngSrc="assets/profile1.jpg" alt="profile image" width="150" height="150" priority>
       </div>
       <div class="profile-info-wrapper">
         <div class="profile-name-with-actions">
-          <h2 class="profile-name">{{ vm.accountDetails.accountName }}</h2>
+          <div class="name-with-icon">
+            <h2 class="profile-name">{{ vm.accountDetails.accountName }}</h2>
+            <mat-icon class="verified-icon" svgIcon="verified"></mat-icon>
+          </div>
           <div class="profile-btns">
             <button mat-stroked-button color="secondary" (click)="onOpenEditProfileClicked()">Edit profile</button>
             <button mat-stroked-button color="secondary" (click)="onAddNewImageClicked()">Add image</button>

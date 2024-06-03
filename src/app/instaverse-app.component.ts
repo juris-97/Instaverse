@@ -39,5 +39,7 @@ export class InstaverseAppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/reel.svg'));
     this.matIconRegistry.addSvgIcon('tag',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/tag.svg'));
+    this.matIconRegistry.addSvgIcon('verified',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/verified.svg'))
   }
 }
